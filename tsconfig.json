@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "allowJs": true,
+        "outDir": "./dist",
+        "strict": true,
+        "noImplicitAny": true,
+        "lib": ["DOM", "ES2021"]
+    },
+    "include": [
+        "src/ts/*"
+    ],
+}
