@@ -3,8 +3,8 @@ const printmotd = () => {
     console.log(`
     Roses are red
     Violets are blue
-    I'll fucking kill you if
-    You write "== true"
+    I'll fucking kill you
+    If you write "== true"
     `);
 };
 
