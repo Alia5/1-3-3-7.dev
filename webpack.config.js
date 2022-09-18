@@ -34,15 +34,14 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/html/index.html'),
+            
         }),
-        // Replace html contents with string or regex patterns
         new HtmlReplaceWebpackPlugin([
             {
-                pattern: /<HeadReplacerContent \/>/g,
+                pattern: '<headreplacercontent/>',
                 replacement: fs.readFileSync('HeadReplacerContent.txt', 'utf8')?.toString() || ''
             }
         ])
-
     ],
     module: {
         rules: [
