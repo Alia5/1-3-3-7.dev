@@ -10,6 +10,7 @@ const printmotd = () => {
 };
 
 const loadGads = () => {
+    (document.querySelector('.cookieShit') as HTMLElement).style.display = "none"
     const scripts = document.getElementsByTagName("script");
     Array.from(scripts).forEach((s) => {
         if (s.type === "required") {
@@ -24,20 +25,20 @@ const loadGads = () => {
 
 const main = () => {
     printmotd();
-    if (window.localStorage.getItem("cookiesAccepted") !== "true") {
-        (document.querySelector('.cookieShit') as HTMLElement).style.display = "flex"  
-    } else {
-        loadGads();
-    }
 
     if (isbot(navigator.userAgent)) {
         console.log("isbot");
         window.localStorage.setItem("cookiesAccepted", "true");
         loadGads();
+    } else {
+        if (window.localStorage.getItem("cookiesAccepted") !== "true") {
+            (document.querySelector('.cookieShit') as HTMLElement).style.display = "flex"  
+        } else {
+            loadGads();
+        }
     }
 
     (document.querySelector('#darkSide') as HTMLButtonElement).onclick = () => {
-        (document.querySelector('.cookieShit') as HTMLElement).style.display = "none"
         window.localStorage.setItem("cookiesAccepted", "true");
         loadGads();
     }
