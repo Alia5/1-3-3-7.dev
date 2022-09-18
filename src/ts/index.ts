@@ -48,7 +48,3 @@ const main = () => {
 
 
 main();
-function isBot() {
-    throw new Error("Function not implemented.");
-}
-
