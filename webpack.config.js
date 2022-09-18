@@ -28,6 +28,7 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
+                { from: path.join(__dirname, 'src/html/imprint.html'), to: "." },
                 { from: path.join(__dirname, 'src/assets'), to: "assets" },
                 { from: path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), to: "assets/fonts" }
             ],

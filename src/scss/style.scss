@@ -24,6 +24,31 @@ body, html {
     width: 100%;
 }
 
+.content {
+    color: white;
+    width: 50vw;
+}
+
+.content {
+    color: white;
+    width: 50vw;
+}
+
+.imprl {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    border: unset;
+    color: #ffffff30;
+    font-size: smaller;
+    &:hover {
+        background-color: unset;
+        border-color: unset;
+        box-shadow: unset;
+    }
+}
+
 @media (orientation: landscape) {
     .wrapper {
         flex-direction: row;
