@@ -5,6 +5,8 @@
 const path = require('path');
 const fs = require('fs');
 const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin')
 
 module.exports = {
     mode: process.env["PROD"] ? 'production' : 'development',
@@ -26,11 +28,21 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: path.join(__dirname, 'src/html'), to: "." },
                 { from: path.join(__dirname, 'src/assets'), to: "assets" },
                 { from: path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free/webfonts'), to: "assets/fonts" }
             ],
         }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/html/index.html'),
+        }),
+        // Replace html contents with string or regex patterns
+        new HtmlReplaceWebpackPlugin([
+            {
+                pattern: /<HeadReplacerContent \/>/g,
+                replacement: fs.readFileSync('HeadReplacerContent.txt', 'utf8')?.toString() || ''
+            }
+        ])
+
     ],
     module: {
         rules: [
