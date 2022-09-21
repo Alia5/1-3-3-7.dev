@@ -23,6 +23,7 @@ body, html {
     z-index: 2;
     height: 100%;
     width: 100%;
+    flex-direction: column;
 }
 
 .cookieShit {
@@ -122,15 +123,23 @@ body, html {
     }
 }
 
+.sub-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 100%;
+}
+
 @media (orientation: landscape) {
-    .wrapper {
+    .sub-wrapper {
         flex-direction: row;
     }
 
 }
 
 @media (orientation: portrait) {
-    .wrapper {
+    .sub-wrapper {
         flex-direction: column;
     }
 }
@@ -159,6 +168,8 @@ a {
     align-items: center;
     justify-content: center;
     font-family: 'Open Sans', sans-serif;
+    white-space: pre-line;
+    text-align: center;
     &:link {
         text-decoration: none;
         &:visited {
