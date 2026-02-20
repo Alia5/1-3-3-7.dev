@@ -1,0 +1,38 @@
+a {
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+	outline-offset: -1px;
+	cursor: pointer;
+	outline: 1px solid transparent;
+	padding: 1rem;
+	color: var(--text-color);
+	border-radius: 0.5rem;
+	box-shadow: 0 0.1em 0.5em 0.2em rgb(0 0 0 / 0.25);
+	display: grid;
+	grid-auto-flow: column;
+	transition: all var(--transition-duration) var(--default-ease);
+	&:hover,
+	&:focus-visible {
+		outline: 2px solid var(--color-primary);
+		box-shadow: 0 0 1.3em -0.4em var(--color-primary);
+		color: var(--color-primary);
+		background: rgb(128 128 128 / 0.25);
+	}
+
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		border: 1px solid transparent;
+		transition: all var(--transition-duration) var(--default-ease);
+		background: var(--card-border-pseudo-gradient) border-box;
+		mask:
+			linear-gradient(black, black) border-box,
+			linear-gradient(black, black) padding-box;
+		mask-composite: subtract;
+	}
+}
